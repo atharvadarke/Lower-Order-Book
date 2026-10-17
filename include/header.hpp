@@ -17,9 +17,13 @@ class Order{
     public:
     int trade_quantity;
     long long trade_amount;
-    char GTC;               //Qualifier:- Good Til Cancelled
-    char AON;               //Qualifier:- All of None 
+    // char GTC;               //Qualifier:- Good Til Cancelled
+    // char AON;               //Qualifier:- All of None 
 
+    enum class qualifier{
+        AON,
+        GTC,
+    };
 
     Order(long long balance, int trade_quantity, long long trade_amount);
    //Class Methods
