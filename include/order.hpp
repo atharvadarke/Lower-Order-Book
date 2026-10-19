@@ -15,25 +15,24 @@ class Order{
    
 
     public:
+
+    enum class Orderside{
+        BID,
+        ASK,
+    };
+    enum class Qualifier{
+        AON,                        // char GTC;               //Qualifier:- Good Til Cancelled
+        GTC,                       // char AON;               //Qualifier:- All of None 
+
+        
+    };
+
     uint64_t order_id;
     uint64_t price;
     uint64_t trade_quantity;
-     
-    // char GTC;               //Qualifier:- Good Til Cancelled
-    // char AON;               //Qualifier:- All of None 
-
-    enum class Orderside{
-        bid,
-        ask,
-    };
-    
-    enum class Qualifier{
-        AON,
-        GTC,
-    };
-
     Orderside side;
     Qualifier qualifier;
+    
     Order(uint64_t order_id, uint64_t price, uint64_t trade_quantity, Orderside side, Qualifier qualifier);
    
    
