@@ -1,3 +1,4 @@
+#include<cstdint>
 // class Order
 // {
 // private:
@@ -11,27 +12,29 @@
 // };
 
 class Order{
-    private:
-    long long balance;
+   
 
     public:
-    int trade_quantity;
-    long long trade_amount;
+    uint64_t order_id;
+    uint64_t price;
+    uint64_t trade_quantity;
+     
     // char GTC;               //Qualifier:- Good Til Cancelled
     // char AON;               //Qualifier:- All of None 
 
-    enum class qualifier{
+    enum class Orderside{
+        bid,
+        ask,
+    };
+    
+    enum class Qualifier{
         AON,
         GTC,
     };
 
-    Order(long long balance, int trade_quantity, long long trade_amount);
-   //Class Methods
-    double bidOrder(int trade_quantity, double trade_amount);
-    double askOrder(int trade_quantity, double trade_amount);
-
-    //Abstract methods
-    void GoodTillCancelled();
-    void AlOfNone();
-
+    Orderside side;
+    Qualifier qualifier;
+    Order(uint64_t order_id, uint64_t price, uint64_t trade_quantity, Orderside side, Qualifier qualifier);
+   
+   
 };
